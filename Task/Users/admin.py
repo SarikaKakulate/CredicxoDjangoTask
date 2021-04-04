@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import admin as auth_admin
 from django.contrib.auth import get_user_model
-from Users.models import Student
+from Users.models import Student, Teacher
 
 User = get_user_model()
 
@@ -46,7 +46,25 @@ class StudentAdmin(admin.ModelAdmin):
         return False
 
     def has_change_permission(self, request, obj=None):
-        return True
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(Teacher)
+class StudentAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "first_name",
+        "last_name",
+    ]
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
 
     def has_delete_permission(self, request, obj=None):
         return False
