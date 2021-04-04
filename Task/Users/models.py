@@ -35,3 +35,12 @@ class Student(models.Model):
     def __str__(self):
         return self.first_name
 
+
+class Teacher(models.Model):
+    
+    first_name      = models.CharField(_("First Name"), blank=False, null=False, max_length=255)
+    last_name       = models.CharField(_("Last Name"), blank=False, null=False, max_length=255)
+    
+    def __str__(self):
+        return self.first_name
+
